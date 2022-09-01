@@ -54,7 +54,7 @@ const render = () => {
     <span class="remove-book">&times;</span>
     <img
       class="book-image"
-      src="${book.cover}"
+      src="${book?.cover}"
     />
     <div class="title">Title: ${book.name}</div>
     <div class="author">Author: ${book.author}</div>
@@ -72,7 +72,9 @@ addBook.addEventListener(`click`, () => {
   let pagesNum = pages.value;
   let authorName = authorInp.value;
   let cover = coverImg.value;
-  books.push(new Book(titleName, pagesNum, authorName, `read`, cover));
+  let status = `not read`;
+
+  books.push(new Book(titleName, pagesNum, authorName, status, cover));
   render();
   authorInp.value = ``;
   coverImg.value = ``;
